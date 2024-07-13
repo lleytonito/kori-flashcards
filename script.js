@@ -498,7 +498,6 @@ document.addEventListener("DOMContentLoaded", () => {
       ],
     },
   ];
-
   let currentIndex = 0;
   let solvedIndex = 0;
   const solvedFlashcards = [];
@@ -522,6 +521,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const unsolvedMarkIcon = document.getElementById("unsolved-mark-icon");
 
   function updateCard() {
+    flashcard.classList.remove("flipped"); // Ensure the card shows the question
     if (flashcards.length > 0) {
       cardNumber.textContent = `${currentIndex + 1} of ${flashcards.length}`;
       cardFront.textContent = flashcards[currentIndex].question;
@@ -540,6 +540,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function updateSolvedCard() {
+    solvedFlashcard.classList.remove("flipped"); // Ensure the card shows the question
     if (solvedFlashcards.length > 0) {
       solvedCardNumber.textContent = `${solvedIndex + 1} of ${
         solvedFlashcards.length
