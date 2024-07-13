@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Interactive Flashcards</title>
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div
+      class="container d-flex justify-content-center align-items-center vh-100"
+    >
+      <div class="flashcard-app text-center">
+        <ul class="nav nav-tabs" id="flashcard-tabs" role="tablist">
+          <li class="nav-item">
+            <a
+              class="nav-link active"
+              id="unsolved-tab"
+              data-toggle="tab"
+              href="#unsolved"
+              role="tab"
+              aria-controls="unsolved"
+              aria-selected="true"
+              >Unsolved</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              id="solved-tab"
+              data-toggle="tab"
+              href="#solved"
+              role="tab"
+              aria-controls="solved"
+              aria-selected="false"
+              >Solved</a
+            >
+          </li>
+        </ul>
+        <div class="tab-content" id="flashcard-tabs-content">
+          <div
+            class="tab-pane fade show active"
+            id="unsolved"
+            role="tabpanel"
+            aria-labelledby="unsolved-tab"
+          >
+            <div class="flashcard position-relative" id="flashcard">
+              <div class="card-number" id="card-number">1 of 20</div>
+              <div class="card-content" id="card-content">
+                <div class="card-face card-front" id="card-front">Question</div>
+                <div class="card-face card-back" id="card-back">Answer</div>
+              </div>
+              <img
+                src="assets/grey-checkmark.png"
+                class="mark-solved-icon position-absolute"
+                id="mark-icon"
+                alt="Mark as Solved"
+              />
+              <button class="btn btn-secondary mt-3" id="flip-btn">
+                Flip Card
+              </button>
+            </div>
+            <div class="controls mt-3">
+              <button class="btn btn-primary mr-2" id="prev-btn">&larr;</button>
+              <button class="btn btn-primary" id="next-btn">&rarr;</button>
+            </div>
+          </div>
+          <div
+            class="tab-pane fade"
+            id="solved"
+            role="tabpanel"
+            aria-labelledby="solved-tab"
+          >
+            <div class="flashcard position-relative" id="solved-flashcard">
+              <div class="card-number" id="solved-card-number">1 of 0</div>
+              <div class="card-content" id="solved-card-content">
+                <div class="card-face card-front" id="solved-card-front">
+                  No solved cards.
+                </div>
+                <div class="card-face card-back" id="solved-card-back"></div>
+              </div>
+              <img
+                src="assets/green-checkmark.png"
+                class="mark-unsolved-icon position-absolute"
+                id="unsolved-mark-icon"
+                alt="Mark as Unsolved"
+              />
+              <button class="btn btn-secondary mt-3" id="solved-flip-btn">
+                Flip Card
+              </button>
+            </div>
+            <div class="controls mt-3">
+              <button class="btn btn-primary mr-2" id="solved-prev-btn">
+                &larr;
+              </button>
+              <button class="btn btn-primary" id="solved-next-btn">
+                &rarr;
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
