@@ -11,95 +11,143 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <div class="background-grid">
+      <div
+        class="background-item"
+        style="
+          grid-area: top-left;
+          background-image: url('assets/collage1.jpg');
+        "
+      ></div>
+      <div
+        class="background-item"
+        style="grid-area: top; background-image: url('assets/collage2.jpg')"
+      ></div>
+      <div
+        class="background-item"
+        style="
+          grid-area: top-right;
+          background-image: url('assets/collage3.jpg');
+        "
+      ></div>
+      <div
+        class="background-item"
+        style="grid-area: left; background-image: url('assets/collage4.jpg')"
+      ></div>
+      <div
+        class="background-item"
+        style="grid-area: right; background-image: url('assets/collage5.jpg')"
+      ></div>
+      <div
+        class="background-item"
+        style="
+          grid-area: bottom-left;
+          background-image: url('assets/collage6.jpg');
+        "
+      ></div>
+      <div
+        class="background-item"
+        style="grid-area: bottom; background-image: url('assets/collage7.jpg')"
+      ></div>
+      <div
+        class="background-item"
+        style="
+          grid-area: bottom-right;
+          background-image: url('assets/collage8.jpg');
+        "
+      ></div>
+    </div>
     <div
       class="container d-flex justify-content-center align-items-center vh-100"
     >
-      <div class="flashcard-app text-center">
-        <ul class="nav nav-tabs" id="flashcard-tabs" role="tablist">
-          <li class="nav-item">
-            <a
-              class="nav-link active"
-              id="unsolved-tab"
-              data-toggle="tab"
-              href="#unsolved"
-              role="tab"
-              aria-controls="unsolved"
-              aria-selected="true"
-              >Unsolved</a
+      <div class="flashcard-app-container">
+        <div class="flashcard-app text-center">
+          <ul class="nav nav-tabs" id="flashcard-tabs" role="tablist">
+            <li class="nav-item">
+              <a
+                class="nav-link active"
+                id="unsolved-tab"
+                data-toggle="tab"
+                href="#unsolved"
+                role="tab"
+                aria-controls="unsolved"
+                aria-selected="true"
+                >Unsolved</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                id="solved-tab"
+                data-toggle="tab"
+                href="#solved"
+                role="tab"
+                aria-controls="solved"
+                aria-selected="false"
+                >Solved</a
+              >
+            </li>
+          </ul>
+          <div class="tab-content" id="flashcard-tabs-content">
+            <div
+              class="tab-pane fade show active"
+              id="unsolved"
+              role="tabpanel"
+              aria-labelledby="unsolved-tab"
             >
-          </li>
-          <li class="nav-item">
-            <a
-              class="nav-link"
-              id="solved-tab"
-              data-toggle="tab"
-              href="#solved"
-              role="tab"
-              aria-controls="solved"
-              aria-selected="false"
-              >Solved</a
-            >
-          </li>
-        </ul>
-        <div class="tab-content" id="flashcard-tabs-content">
-          <div
-            class="tab-pane fade show active"
-            id="unsolved"
-            role="tabpanel"
-            aria-labelledby="unsolved-tab"
-          >
-            <div class="flashcard position-relative" id="flashcard">
-              <div class="card-number" id="card-number">1 of 20</div>
-              <div class="card-content" id="card-content">
-                <div class="card-face card-front" id="card-front">Question</div>
-                <div class="card-face card-back" id="card-back">Answer</div>
-              </div>
-              <img
-                src="assets/grey-checkmark.png"
-                class="mark-solved-icon position-absolute"
-                id="mark-icon"
-                alt="Mark as Solved"
-              />
-              <button class="btn btn-secondary mt-3" id="flip-btn">
-                Flip Card
-              </button>
-            </div>
-            <div class="controls mt-3">
-              <button class="btn btn-primary mr-2" id="prev-btn">&larr;</button>
-              <button class="btn btn-primary" id="next-btn">&rarr;</button>
-            </div>
-          </div>
-          <div
-            class="tab-pane fade"
-            id="solved"
-            role="tabpanel"
-            aria-labelledby="solved-tab"
-          >
-            <div class="flashcard position-relative" id="solved-flashcard">
-              <div class="card-number" id="solved-card-number">1 of 0</div>
-              <div class="card-content" id="solved-card-content">
-                <div class="card-face card-front" id="solved-card-front">
-                  No solved cards.
+              <div class="flashcard position-relative" id="flashcard">
+                <div class="card-number" id="card-number">1 of 20</div>
+                <div class="card-content" id="card-content">
+                  <div class="card-face card-front" id="card-front">
+                    Question
+                  </div>
+                  <div class="card-face card-back" id="card-back">Answer</div>
                 </div>
-                <div class="card-face card-back" id="solved-card-back"></div>
+                <div class="choices mt-3" id="choices"></div>
+                <img
+                  src="assets/grey-checkmark.png"
+                  class="mark-solved-icon position-absolute"
+                  id="mark-icon"
+                  alt="Mark as Solved"
+                />
               </div>
-              <img
-                src="assets/green-checkmark.png"
-                class="mark-unsolved-icon position-absolute"
-                id="unsolved-mark-icon"
-                alt="Mark as Unsolved"
-              />
-              <button class="btn btn-secondary mt-3" id="solved-flip-btn">
-                Flip Card
-              </button>
+              <div class="controls mt-3">
+                <button class="btn btn-primary mr-2" id="prev-btn">
+                  &larr;
+                </button>
+                <button class="btn btn-primary" id="next-btn">&rarr;</button>
+              </div>
             </div>
-            <div class="controls mt-3">
-              <button class="btn btn-primary mr-2" id="solved-prev-btn">
-                &larr;
-              </button>
-              <button class="btn btn-primary" id="solved-next-btn">
-                &rarr;
-              </button>
+            <div
+              class="tab-pane fade"
+              id="solved"
+              role="tabpanel"
+              aria-labelledby="solved-tab"
+            >
+              <div class="flashcard position-relative" id="solved-flashcard">
+                <div class="card-number" id="solved-card-number">1 of 0</div>
+                <div class="card-content" id="solved-card-content">
+                  <div class="card-face card-front" id="solved-card-front">
+                    No solved cards.
+                  </div>
+                  <div class="card-face card-back" id="solved-card-back"></div>
+                </div>
+                <div class="choices mt-3" id="solved-choices"></div>
+                <img
+                  src="assets/green-checkmark.png"
+                  class="mark-unsolved-icon position-absolute"
+                  id="unsolved-mark-icon"
+                  alt="Mark as Unsolved"
+                />
+              </div>
+              <div class="controls mt-3">
+                <button class="btn btn-primary mr-2" id="solved-prev-btn">
+                  &larr;
+                </button>
+                <button class="btn btn-primary" id="solved-next-btn">
+                  &rarr;
+                </button>
+              </div>
             </div>
           </div>
         </div>
